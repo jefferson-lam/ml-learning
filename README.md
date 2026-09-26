@@ -16,6 +16,14 @@ VS Code should automatically detect `.venv`. For notebooks, select the interpret
 .venv/bin/python
 ```
 
+Open the project root—not only the `notebooks/` folder—in VS Code:
+
+```bash
+code /Users/jeffersonlam/code/ml-learning
+```
+
+Then open `notebooks/02-end-to-end-project.ipynb` and select the **ml-learning** kernel if VS Code prompts you.
+
 ## Learning loop
 
 For each concept:
