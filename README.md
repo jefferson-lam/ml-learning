@@ -22,38 +22,39 @@ Open the project root—not only the `notebooks/` folder—in VS Code:
 code /Users/jeffersonlam/code/ml-learning
 ```
 
-Then open `notebooks/02-end-to-end-project.ipynb` and select the **ml-learning** kernel if VS Code prompts you.
+Then select the **ml-learning** kernel if VS Code prompts you.
 
-## Learning loop
+## Simple chapter workflow
 
-For each concept:
+Each chapter has two notebooks:
 
-1. Predict what should happen before running code.
-2. Explore the concept in `notebooks/`.
-3. Rebuild the important part in `src/ml_learning/`.
-4. Test it in `tests/`.
-5. Solve a related problem in `exercises/` without looking at the chapter.
-6. Explain the idea in Obsidian and connect it to prior concepts.
+1. `chapters/NN-title.ipynb`: rewrite and run textbook code.
+2. `exercises/NN-exercises.ipynb`: complete the chapter exercises.
 
-Use notebooks as scratchpads. Move reusable code into `src/`, and keep datasets out of Git.
+In the chapter notebook, add a short Markdown note beneath each code section:
+
+```markdown
+**Notes**
+
+- What the code does:
+- Why it matters:
+- What confused me:
+```
+
+After finishing the chapter, summarize only the durable ideas in Obsidian. Keep datasets out of Git.
+
+```text
+chapters/        rewritten textbook code and inline notes
+exercises/       one exercise notebook per chapter
+data/raw/        original local datasets
+data/processed/  generated datasets
+artifacts/       generated models and figures
+```
 
 ## Commands
 
 ```bash
 uv run jupyter lab
-uv run pytest
 uv run ruff check .
 uv run ruff format .
-```
-
-## Structure
-
-```text
-notebooks/       chapter exploration
-src/             reusable implementations
-exercises/       retrieval-practice exercises
-tests/           executable understanding
-data/raw/        original local datasets
-data/processed/  generated datasets
-artifacts/       generated models and figures
 ```
